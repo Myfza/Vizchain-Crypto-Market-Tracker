@@ -14,9 +14,19 @@ import {
   Users,
   Clock
 } from "lucide-react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useAuth } from "@/contexts/AuthContext"
+import { useEffect } from "react"
 
 export default function Landing() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard');
+    }
+  }, [user, navigate]);
   const features = [
     {
       icon: BarChart3,
@@ -69,10 +79,10 @@ export default function Landing() {
           
           <div className="flex items-center space-x-4">
             <ThemeToggle />
-            <Link to="/dashboard">
+            <Link to="/auth">
               <Button variant="outline">Masuk</Button>
             </Link>
-            <Link to="/dashboard">
+            <Link to="/auth">
               <Button className="bg-gradient-primary hover:opacity-90">
                 Mulai Gratis
               </Button>
@@ -100,7 +110,7 @@ export default function Landing() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
-            <Link to="/dashboard">
+            <Link to="/auth">
               <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-white px-8 py-4 text-lg">
                 Mulai Sekarang Gratis
                 <ArrowRight className="ml-2 h-5 w-5" />
