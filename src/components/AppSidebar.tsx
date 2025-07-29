@@ -21,6 +21,7 @@ const navigationItems = [
   { title: "Top Movers", url: "/top-movers", icon: TrendingUp },
   { title: "Portfolio Tracker", url: "/portfolio", icon: Briefcase },
   { title: "Watchlist", url: "/watchlist", icon: Star },
+  { title: "Market Research", url: "/market-research", icon: Search },
   { title: "News & Insights", url: "/news", icon: Newspaper },
   { title: "Settings", url: "/settings", icon: Settings },
 ]
@@ -39,34 +40,16 @@ export function AppSidebar() {
 
   return (
     <Sidebar
-      className={`border-r border-border transition-all duration-300 ${isCollapsed ? "w-16" : "w-64"}`}
+      className="border-r border-border"
       collapsible="icon"
     >
       <SidebarHeader className="p-4 border-b border-border">
-        {!isCollapsed && (
-          <div className="space-y-3">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <BarChart3 className="h-5 w-5 text-white" />
-              </div>
-              <span className="font-bold text-lg">CryptoTracker</span>
-            </div>
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input 
-                placeholder="Search crypto..." 
-                className="pl-9 h-9"
-              />
-            </div>
+        <div className="flex items-center justify-center">
+          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+            <BarChart3 className="h-5 w-5 text-white" />
           </div>
-        )}
-        {isCollapsed && (
-          <div className="flex justify-center">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <BarChart3 className="h-5 w-5 text-white" />
-            </div>
-          </div>
-        )}
+          {!isCollapsed && <span className="font-bold text-lg ml-2">CryptoTracker</span>}
+        </div>
       </SidebarHeader>
 
       <SidebarContent className="p-2">

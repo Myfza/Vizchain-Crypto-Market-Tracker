@@ -15,6 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import { Portfolio } from "./pages/Portfolio";
 import { Watchlist } from "./pages/Watchlist";
 import TopMovers from "./pages/TopMovers";
+import MarketResearch from "./pages/MarketResearch";
 import { News } from "./pages/News";
 import { Analytics } from "./pages/Analytics";
 import { Settings } from "./pages/Settings";
@@ -49,6 +50,7 @@ const App = () => (
               <Route path="/portfolio" element={<ProtectedRoute><AppLayout><Portfolio /></AppLayout></ProtectedRoute>} />
               <Route path="/watchlist" element={<ProtectedRoute><AppLayout><Watchlist /></AppLayout></ProtectedRoute>} />
               <Route path="/top-movers" element={<ProtectedRoute><AppLayout><TopMovers /></AppLayout></ProtectedRoute>} />
+              <Route path="/market-research" element={<ProtectedRoute><AppLayout><MarketResearch /></AppLayout></ProtectedRoute>} />
               <Route path="/news" element={<ProtectedRoute><AppLayout><News /></AppLayout></ProtectedRoute>} />
               <Route path="/analytics" element={<ProtectedRoute><AppLayout><Analytics /></AppLayout></ProtectedRoute>} />
               <Route path="/settings" element={<ProtectedRoute><AppLayout><Settings /></AppLayout></ProtectedRoute>} />
