@@ -17,6 +17,7 @@ import {
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "@/contexts/AuthContext"
 import { useEffect } from "react"
+import { CryptoDashboard } from "@/components/CryptoDashboard"
 
 export default function Landing() {
   const { user } = useAuth();
@@ -91,42 +92,49 @@ export default function Landing() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl text-center">
-          <Badge variant="secondary" className="mb-6 bg-accent text-accent-foreground">
-            <Star className="h-3 w-3 mr-1" />
-            Platform #1 untuk Tracking Crypto
-          </Badge>
-          
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            Pantau Market Crypto Anda,
-            <br />Realtime dan Akurat
-          </h1>
-          
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Akses data terkini, lacak portfolio, dan dapatkan insight pasar dalam satu tempat. 
-            Dirancang khusus untuk investor modern yang menghargai kecepatan dan akurasi.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
-            <Link to="/auth">
-              <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-white px-8 py-4 text-lg">
-                Mulai Sekarang Gratis
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Button variant="outline" size="lg" className="px-8 py-4 text-lg">
-              Lihat Demo
-            </Button>
+      {/* Hero Section with Live Data */}
+      <section className="py-12 px-4">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-8">
+            <Badge variant="secondary" className="mb-4 bg-accent text-accent-foreground">
+              <Star className="h-3 w-3 mr-1" />
+              Live Market Data - Real Time
+            </Badge>
+            
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              Live Crypto Market Dashboard
+            </h1>
+            
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Monitor real-time cryptocurrency prices, trends, and market movements in one comprehensive dashboard
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+              <Link to="/auth">
+                <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-white px-8 py-3">
+                  Start Trading Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/auth">
+                <Button variant="outline" size="lg" className="px-8 py-3">
+                  View Full Dashboard
+                </Button>
+              </Link>
+            </div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+          {/* Live Crypto Dashboard */}
+          <div className="mb-12">
+            <CryptoDashboard />
+          </div>
+
+          {/* Quick Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 p-6 bg-muted/30 rounded-lg">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
